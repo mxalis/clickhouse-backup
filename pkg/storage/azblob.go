@@ -92,7 +92,7 @@ func (s *AzureBlob) Kind() string {
 }
 
 func (s *AzureBlob) GetFileReader(key string) (io.ReadCloser, error) {
-	ctx := context.Background()
+	ctx := context.WithTimeout(context.Background(), 20 * time.Minute)
 	blob := s.Container.NewBlockBlobURL(key)
 
 	r, err := blob.Download(ctx, 0, azblob.CountToEnd, azblob.BlobAccessConditions{}, false, s.CPK)
