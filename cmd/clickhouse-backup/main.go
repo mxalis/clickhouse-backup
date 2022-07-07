@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/logcli"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/logcli"
 	"os"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/backup"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/server"
+	"github.com/mxalis/clickhouse-backup/pkg/backup"
+	"github.com/mxalis/clickhouse-backup/pkg/server"
 
 	"github.com/apex/log"
 	"github.com/urfave/cli"
