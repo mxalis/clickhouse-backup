@@ -55,7 +55,7 @@ func (s *AzureBlob) Connect() error {
 
 	p := azblob.NewPipeline(credential, azblob.PipelineOptions{
 		Retry: azblob.RetryOptions{
-			TryTimeout: 15 * time.Minute,
+			TryTimeout: 5 * time.Minute,
 		},
 	})
 	service := azblob.NewServiceURL(*u, p)
