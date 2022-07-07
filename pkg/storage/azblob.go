@@ -56,6 +56,7 @@ func (s *AzureBlob) Connect() error {
 	container := azblob.NewServiceURL(*u, azblob.NewPipeline(credential, azblob.PipelineOptions{
 		Retry: azblob.RetryOptions{
 			TryTimeout: 15 * time.Minute,
+			},
 		})).NewContainerURL(s.Config.Container)
 	context := context.Background()
 
