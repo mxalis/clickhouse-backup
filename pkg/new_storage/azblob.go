@@ -96,7 +96,11 @@ func (s *AzureBlob) Connect() error {
 	// don't pollute syslog with expected 404's and other garbage logs
 	pipeline.SetForceLogEnabled(false)
 
-	s.Container = azblob.NewServiceURL(*u, azblob.NewPipeline(credential, azblob.PipelineOptions{})).NewContainerURL(s.Config.Container)
+	s.Container = azblob.NewServiceURL(*u, azblob.NewPipeline(credential, azblob.PipelineOptions{
+		Retry: azblob.RetryOptions{
+			TryTimeout: 15 * time.Minute,
+			},
+		})).NewContainerURL(s.Config.Container)
 	_, err = s.Container.Create(context.Background(), azblob.Metadata{}, azblob.PublicAccessNone)
 	if err != nil && !isContainerAlreadyExists(err) {
 		return err
