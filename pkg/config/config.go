@@ -280,7 +280,7 @@ func ValidateConfig(cfg *Config) error {
 	if _, err := time.ParseDuration(cfg.FTP.Timeout); err != nil {
 		return err
 	}
-	if _, err := time.ParseDuration(cfg.AzureBlobConfig.Timeout); err != nil {
+	if _, err := time.ParseDuration(cfg.AzureBlob.Timeout); err != nil {
 		return err
 	}
 	storageClassOk := false
