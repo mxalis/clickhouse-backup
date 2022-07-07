@@ -100,7 +100,7 @@ func (s *AzureBlob) GetFileReader(key string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
-	return r.Body(azblob.RetryReaderOptions{}), nil
+	return r.Body(azblob.RetryReaderOptions{MaxRetryRequests: 2}), nil
 }
 
 func (s *AzureBlob) PutFile(key string, r io.ReadCloser) error {
