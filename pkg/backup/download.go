@@ -324,7 +324,7 @@ func (b *Backuper) downloadTableData(remoteBackup metadata.BackupMetadata, table
 				downloadOffset[disk] += 1
 				tableRemoteFile := path.Join(remoteBackup.BackupName, "shadow", common.TablePathEncode(table.Database), common.TablePathEncode(table.Table), archiveFile)
 				g.Go(func() error {
-					apexLog.Debugf("start download from %s", tableRemoteFile)
+					apexLog.Debugf("START DOWNLOAD from %s", tableRemoteFile)
 					defer s.Release(1)
 					if err := b.dst.DownloadCompressedStream(ctx, tableRemoteFile, tableLocalDir); err != nil {
 						return err
@@ -349,7 +349,7 @@ func (b *Backuper) downloadTableData(remoteBackup metadata.BackupMetadata, table
 			diskPath := b.DiskToPathMap[disk]
 			tableLocalDir := path.Join(diskPath, "backup", remoteBackup.BackupName, "shadow", dbAndTableDir, disk)
 			g.Go(func() error {
-				apexLog.Debugf("start download from %s to %s", tableLocalDir, tableRemotePath)
+				apexLog.Debugf("START DOWNLOAD from %s to %s", tableLocalDir, tableRemotePath)
 				defer s.Release(1)
 				if err := b.dst.DownloadPath(0, tableRemotePath, tableLocalDir); err != nil {
 					return err
