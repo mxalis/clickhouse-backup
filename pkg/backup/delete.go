@@ -2,14 +2,14 @@ package backup
 
 import (
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 	"os"
 	"path"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/new_storage"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/new_storage"
 
 	apexLog "github.com/apex/log"
 )

@@ -2,7 +2,7 @@ package filesystemhelper
 
 import (
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 	"os"
 	"path"
 	"path/filepath"
@@ -10,9 +10,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/common"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/common"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
 	apexLog "github.com/apex/log"
 )
 
@@ -252,7 +252,7 @@ func CreatePartitionsToBackupMap(partitions []string) common.EmptyMap {
 		return make(common.EmptyMap, 0)
 	} else {
 		partitionsMap := common.EmptyMap{}
-		// to avoid use --partitions val1 --partitions val2, https://github.com/AlexAkulov/clickhouse-backup/issues/425#issuecomment-1149855063
+		// to avoid use --partitions val1 --partitions val2, https://github.com/mxalis/clickhouse-backup/issues/425#issuecomment-1149855063
 		for _, partitionArg := range partitions {
 			for _, partition := range strings.Split(partitionArg, ",") {
 				partitionsMap[strings.Trim(partition, " ")] = struct{}{}

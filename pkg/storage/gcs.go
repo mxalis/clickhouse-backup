@@ -2,7 +2,7 @@ package storage
 
 import (
 	"context"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io"
 	"time"
 

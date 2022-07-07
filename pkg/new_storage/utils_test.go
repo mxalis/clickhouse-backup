@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -34,7 +34,7 @@ func TestGetBackupsToDelete(t *testing.T) {
 }
 
 func TestGetBackupsToDeleteWithRequiredBackup(t *testing.T) {
-	// fix https://github.com/AlexAkulov/clickhouse-backup/issues/111
+	// fix https://github.com/mxalis/clickhouse-backup/issues/111
 	testData := []Backup{
 		{metadata.BackupMetadata{BackupName: "3"}, false, "", "", timeParse("2019-03-28T19-50-13")},
 		{metadata.BackupMetadata{BackupName: "1"}, false, "", "", timeParse("2019-03-28T19-50-11")},
@@ -48,7 +48,7 @@ func TestGetBackupsToDeleteWithRequiredBackup(t *testing.T) {
 	assert.Equal(t, expectedData, GetBackupsToDelete(testData, 3))
 	assert.Equal(t, []Backup{}, GetBackupsToDelete([]Backup{testData[0]}, 3))
 
-	// fix https://github.com/AlexAkulov/clickhouse-backup/issues/385
+	// fix https://github.com/mxalis/clickhouse-backup/issues/385
 	testData = []Backup{
 		{metadata.BackupMetadata{BackupName: "3", RequiredBackup: "2"}, false, "", "", timeParse("2019-03-28T19-50-13")},
 		{metadata.BackupMetadata{BackupName: "1"}, false, "", "", timeParse("2019-03-28T19-50-11")},
@@ -63,7 +63,7 @@ func TestGetBackupsToDeleteWithRequiredBackup(t *testing.T) {
 }
 
 func TestGetBackupsToDeleteWithInvalidUploadDate(t *testing.T) {
-	// fix https://github.com/AlexAkulov/clickhouse-backup/issues/409
+	// fix https://github.com/mxalis/clickhouse-backup/issues/409
 	testData := []Backup{
 		{metadata.BackupMetadata{BackupName: "1"}, false, "", "", timeParse("2022-03-03T18-08-01")},
 		{metadata.BackupMetadata{BackupName: "2"}, false, "", "", timeParse("2022-03-03T18-08-02")},

@@ -3,7 +3,7 @@ package new_storage
 import (
 	"errors"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io"
 	"io/ioutil"
 	"path"

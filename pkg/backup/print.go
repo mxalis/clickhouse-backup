@@ -3,7 +3,7 @@ package backup
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io"
 	"io/ioutil"
 	"os"
@@ -12,10 +12,10 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/new_storage"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/new_storage"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 )
 
 func printBackupsRemote(w io.Writer, backupList []new_storage.Backup, format string) error {
@@ -245,7 +245,7 @@ func GetRemoteBackups(cfg *config.Config, parseMetadata bool) ([]new_storage.Bac
 	if err != nil {
 		return []new_storage.Backup{}, err
 	}
-	// ugly hack to fix https://github.com/AlexAkulov/clickhouse-backup/issues/309
+	// ugly hack to fix https://github.com/mxalis/clickhouse-backup/issues/309
 	if parseMetadata == false && len(backupList) > 0 {
 		lastBackup := backupList[len(backupList)-1]
 		backupList, err = bd.BackupList(true, lastBackup.BackupName)

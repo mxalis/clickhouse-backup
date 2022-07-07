@@ -5,10 +5,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/progressbar"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/progressbar"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 	"io"
 	"io/ioutil"
 	"os"
@@ -19,7 +19,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
 	"golang.org/x/sync/errgroup"
 
 	apexLog "github.com/apex/log"
@@ -555,7 +555,7 @@ func (bd *BackupDestination) UploadPath(size int64, baseLocalPath string, files 
 }
 
 func NewBackupDestination(cfg *config.Config, calcMaxSize bool) (*BackupDestination, error) {
-	// https://github.com/AlexAkulov/clickhouse-backup/issues/404
+	// https://github.com/mxalis/clickhouse-backup/issues/404
 	if calcMaxSize {
 		maxFileSize, err := clickhouse.CalculateMaxFileSize(cfg)
 		if err != nil {
@@ -573,7 +573,7 @@ func NewBackupDestination(cfg *config.Config, calcMaxSize bool) (*BackupDestinat
 		azblobStorage := &AzureBlob{Config: &cfg.AzureBlob}
 		azblobStorage.Config.Path = clickhouse.ApplyMacros(cfg, azblobStorage.Config.Path)
 		bufferSize := azblobStorage.Config.BufferSize
-		// https://github.com/AlexAkulov/clickhouse-backup/issues/317
+		// https://github.com/mxalis/clickhouse-backup/issues/317
 		if bufferSize <= 0 {
 			bufferSize = int(cfg.General.MaxFileSize) / cfg.AzureBlob.MaxPartsCount
 			if bufferSize < 2*1024*1024 {

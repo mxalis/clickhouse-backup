@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -19,10 +19,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/backup"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/backup"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
 
 	apexLog "github.com/apex/log"
 	"github.com/google/shlex"
@@ -442,7 +442,7 @@ func (api *APIServer) httpRootHandler(w http.ResponseWriter, _ *http.Request) {
 	w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate")
 	w.Header().Set("Pragma", "no-cache")
 
-	_, _ = fmt.Fprintln(w, "Documentation: https://github.com/AlexAkulov/clickhouse-backup#api-configuration")
+	_, _ = fmt.Fprintln(w, "Documentation: https://github.com/mxalis/clickhouse-backup#api-configuration")
 	for _, r := range api.routes {
 		_, _ = fmt.Fprintln(w, r)
 	}

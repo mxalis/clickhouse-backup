@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io/ioutil"
 	"os"
 	"path"
@@ -12,11 +12,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/common"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/filesystemhelper"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/common"
+	"github.com/mxalis/clickhouse-backup/pkg/filesystemhelper"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 	apexLog "github.com/apex/log"
 	"github.com/google/uuid"
 	"github.com/otiai10/copy"
@@ -162,7 +162,7 @@ func CreateBackup(cfg *config.Config, backupName, tablePattern string, partition
 				if removeBackupErr := RemoveBackupLocal(cfg, backupName, disks); removeBackupErr != nil {
 					log.Error(removeBackupErr.Error())
 				}
-				// fix corner cases after https://github.com/AlexAkulov/clickhouse-backup/issues/379
+				// fix corner cases after https://github.com/mxalis/clickhouse-backup/issues/379
 				if cleanShadowErr := Clean(cfg); cleanShadowErr != nil {
 					log.Error(cleanShadowErr.Error())
 				}

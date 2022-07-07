@@ -3,7 +3,7 @@ package new_storage
 import (
 	"context"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"google.golang.org/api/option/internaloption"
 	"io"
 	"net/http"

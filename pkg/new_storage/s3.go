@@ -3,7 +3,7 @@ package new_storage
 import (
 	"context"
 	"crypto/tls"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
 	"io"
 	"net/http"
 	"os"

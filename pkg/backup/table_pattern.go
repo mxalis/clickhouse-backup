@@ -3,8 +3,8 @@ package backup
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/common"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/filesystemhelper"
+	"github.com/mxalis/clickhouse-backup/pkg/common"
+	"github.com/mxalis/clickhouse-backup/pkg/filesystemhelper"
 	"io"
 	"io/ioutil"
 	"net/url"
@@ -14,7 +14,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
 )
 
 type ListOfTables []metadata.TableMetadata

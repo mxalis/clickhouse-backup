@@ -104,8 +104,8 @@ Vagrant.configure(2) do |config|
 
     ln -nvsf /usr/lib/go-${GOLANG_VERSION}/bin/go /bin/go
     ln -nvsf /usr/lib/go-${GOLANG_VERSION}/bin/gofmt /bin/gofmt
-    mkdir -p /home/ubuntu/go/src/github.com/AlexAkulov/
-    ln -nsvf /vagrant /home/ubuntu/go/src/github.com/AlexAkulov/clickhouse-backup
+    mkdir -p /home/ubuntu/go/src/github.com/mxalis/
+    ln -nsvf /vagrant /home/ubuntu/go/src/github.com/mxalis/clickhouse-backup
 
     # docker
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -

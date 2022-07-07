@@ -2,9 +2,9 @@ package backup
 
 import (
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/new_storage"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/new_storage"
 )
 
 type Backuper struct {

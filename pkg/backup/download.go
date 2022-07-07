@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/filesystemhelper"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/filesystemhelper"
 	"io/ioutil"
 	"os"
 	"path"
@@ -18,11 +18,11 @@ import (
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/common"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/new_storage"
-	legacyStorage "github.com/AlexAkulov/clickhouse-backup/pkg/storage"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/common"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/new_storage"
+	legacyStorage "github.com/mxalis/clickhouse-backup/pkg/storage"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 
 	apexLog "github.com/apex/log"
 )
@@ -96,7 +96,7 @@ func (b *Backuper) Download(backupName string, tablePattern string, partitions [
 	if !found {
 		return fmt.Errorf("'%s' is not found on remote storage", backupName)
 	}
-	//look https://github.com/AlexAkulov/clickhouse-backup/discussions/266 need download legacy before check for empty backup
+	//look https://github.com/mxalis/clickhouse-backup/discussions/266 need download legacy before check for empty backup
 	if remoteBackup.Legacy {
 		if tablePattern != "" {
 			return fmt.Errorf("'%s' is old format backup and doesn't supports download of specific tables", backupName)

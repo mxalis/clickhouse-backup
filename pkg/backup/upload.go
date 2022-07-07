@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/clickhouse"
+	"github.com/mxalis/clickhouse-backup/pkg/clickhouse"
 	"io/ioutil"
 	"os"
 	"path"
@@ -18,10 +18,10 @@ import (
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/common"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/filesystemhelper"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/utils"
+	"github.com/mxalis/clickhouse-backup/pkg/common"
+	"github.com/mxalis/clickhouse-backup/pkg/filesystemhelper"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/utils"
 	apexLog "github.com/apex/log"
 	"github.com/yargevad/filepathx"
 )

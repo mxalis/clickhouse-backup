@@ -17,8 +17,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/AlexAkulov/clickhouse-backup/pkg/config"
-	"github.com/AlexAkulov/clickhouse-backup/pkg/metadata"
+	"github.com/mxalis/clickhouse-backup/pkg/config"
+	"github.com/mxalis/clickhouse-backup/pkg/metadata"
 	"github.com/ClickHouse/clickhouse-go"
 	"github.com/apex/log"
 	"github.com/jmoiron/sqlx"
@@ -551,9 +551,9 @@ func (ch *ClickHouse) CreateTable(table Table, query string, dropTable bool, onC
 	}
 
 	// fix restore schema for legacy backup
-	// see https://github.com/AlexAkulov/clickhouse-backup/issues/268
-	// https://github.com/AlexAkulov/clickhouse-backup/issues/297
-	// https://github.com/AlexAkulov/clickhouse-backup/issues/331
+	// see https://github.com/mxalis/clickhouse-backup/issues/268
+	// https://github.com/mxalis/clickhouse-backup/issues/297
+	// https://github.com/mxalis/clickhouse-backup/issues/331
 	isOnlyTableWithQuotesPresent, err := regexp.Match(fmt.Sprintf("^CREATE [^(\\.]+ `%s`", table.Name), []byte(query))
 	if err != nil {
 		return err

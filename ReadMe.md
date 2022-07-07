@@ -1,8 +1,8 @@
 
 # clickhouse-backup
 
-[![Build](https://github.com/AlexAkulov/clickhouse-backup/actions/workflows/build.yaml/badge.svg?branch=dev)](https://github.com/AlexAkulov/clickhouse-backup/actions/workflows/build.yaml)
-[![GoDoc](https://godoc.org/github.com/AlexAkulov/clickhouse-backup?status.svg)](http://godoc.org/github.com/AlexAkulov/clickhouse-backup)
+[![Build](https://github.com/mxalis/clickhouse-backup/actions/workflows/build.yaml/badge.svg?branch=dev)](https://github.com/mxalis/clickhouse-backup/actions/workflows/build.yaml)
+[![GoDoc](https://godoc.org/github.com/mxalis/clickhouse-backup?status.svg)](http://godoc.org/github.com/mxalis/clickhouse-backup)
 [![Telegram](https://img.shields.io/badge/telegram-join%20chat-3796cd.svg)](https://t.me/clickhousebackup)
 [![Docker Image](https://img.shields.io/docker/pulls/alexakulov/clickhouse-backup.svg)](https://hub.docker.com/r/alexakulov/clickhouse-backup)
 
@@ -28,7 +28,7 @@ TODO:
 
 ## Installation
 
-- Download the latest binary from the [releases](https://github.com/AlexAkulov/clickhouse-backup/releases) page and decompress with:
+- Download the latest binary from the [releases](https://github.com/mxalis/clickhouse-backup/releases) page and decompress with:
 
 ```shell
 tar -zxvf clickhouse-backup.tar.gz
@@ -48,7 +48,7 @@ docker run -u $(id -u clickhouse) --rm -it --network host -v "/var/lib/clickhous
 - Build from the sources:
 
 ```shell
-GO111MODULE=on go get github.com/AlexAkulov/clickhouse-backup/cmd/clickhouse-backup
+GO111MODULE=on go get github.com/mxalis/clickhouse-backup/cmd/clickhouse-backup
 ```
 
 ## Usage
