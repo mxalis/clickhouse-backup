@@ -327,6 +327,7 @@ func (b *Backuper) downloadTableData(remoteBackup metadata.BackupMetadata, table
 					apexLog.Debugf("START DOWNLOAD from %s", tableRemoteFile)
 					defer s.Release(1)
 					if err := b.dst.DownloadCompressedStream(ctx, tableRemoteFile, tableLocalDir); err != nil {
+						apexLog.Errorf("error in DownloadCompressedStream during downloadTableData: %v", err)
 						return err
 					}
 					apexLog.Debugf("finish download from %s", tableRemoteFile)
